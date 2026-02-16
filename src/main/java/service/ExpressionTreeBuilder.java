@@ -7,7 +7,7 @@ import java.util.Stack;
 
 public class ExpressionTreeBuilder {
 
-    // REQUIRED BY CONTROLLER ✅
+
     public ExpressionNode buildTree(String postfix) {
 
         Stack<ExpressionNode> stack = new Stack<>();
@@ -31,7 +31,6 @@ public class ExpressionTreeBuilder {
         return stack.pop();
     }
 
-    // REQUIRED BY CONTROLLER ✅
     public int evaluate(ExpressionNode node, Map<String, Integer> variables) {
 
         if (!node.isOperator()) {
