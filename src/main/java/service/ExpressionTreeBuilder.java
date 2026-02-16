@@ -30,7 +30,7 @@ public class ExpressionTreeBuilder {
         }
         return stack.pop();
     }
-
+    //
     public int evaluate(ExpressionNode node, Map<String, Integer> variables) {
 
         if (!node.isOperator()) {
@@ -48,6 +48,7 @@ public class ExpressionTreeBuilder {
             return variables.get(node.getValue());
         }
 
+
         int left = evaluate(node.getLeft(), variables);
         int right = evaluate(node.getRight(), variables);
 
@@ -59,4 +60,5 @@ public class ExpressionTreeBuilder {
             default -> throw new IllegalArgumentException("Invalid operator");
         };
     }
+
 }
