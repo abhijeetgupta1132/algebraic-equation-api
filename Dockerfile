@@ -2,8 +2,11 @@ FROM eclipse-temurin:17-jdk-alpine
 
 WORKDIR /app
 
-COPY target/*.jar app.jar
+# copy project files
+COPY . .
 
-EXPOSE 8080
+# build the jar inside container
+RUN ./mvnw clean package -DskipTests
 
-ENTRYPOINT ["java","-jar","/app/app.jar"]
+# run the jar
+ENTRYPOINT ["java","-jar","target/*.jar"]
